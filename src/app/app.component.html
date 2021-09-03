@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="form-group">
+    <label>Select Album</label>
+    <select [(ngModel)]='AlbumSelected' class="form-control" (ngModelChange)="OnAlbumSelected($event)">
+    <option *ngFor="let al of ouralbums" [value]="al.id" >{{al.title}}</option>
+    </select>
+  </div>
+  
+  
+  <br>
+  The selected Album Id is:{{AlbumSelected}}
+  
+          <br>     
+    <table  class="table table-warning table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>AlbumId</th>
+          <th>Title</th>
+          <th>thumbnail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of ourphotos">
+          <td>{{p.id}}</td>
+          <td>{{p.albumId}}</td>
+          <td>{{p.title}}</td>
+          <td><img src="{{p.thumbnailUrl}}"></td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+  <router-outlet></router-outlet>
